@@ -10,6 +10,14 @@ group = 'co.edu.escuelaing'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
+ext {
+	sonarProjectKey = 'IETI-ROCKS_sample-service'
+	sonarOrganization = 'IETI-ROCKS'
+	sonarHost = 'https://sonarcloud.io'
+	jacocoDestinationFile = "${rootProject.projectDir}/build/reports/jacoco/report.xml"
+	jacocoExclusions = ['']
+}
+
 repositories {
 	mavenCentral()
 	maven { url 'https://repo.spring.io/milestone' }
@@ -30,5 +38,15 @@ jacocoTestReport {
 	reports {
 		xml.enabled true
 		xml.destination file("${rootProject.projectDir}/build/reports/jacoco/report.xml")
-		}
+	}
+}
+
+sonarqube {
+	properties {
+		property 'sonar.projectKey', sonarProjectKey
+		property 'sonar.organization', sonarOrganization
+		property 'sonar.jacoco.reportPath', jacocoDestinationFile
+		property 'sonar.host.url', sonarHost
+		property 'sonar.coverage.exclusions', jacocoExclusions
+	}
 }
