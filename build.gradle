@@ -15,7 +15,7 @@ ext {
 	sonarOrganization = 'ieti-rocks'
 	sonarHost = 'https://sonarcloud.io'
 	jacocoDestinationFile = "${rootProject.projectDir}/build/reports/jacoco/report.xml"
-	jacocoExclusions = ['']
+	jacocoExclusions = ['**/SampleServiceApplication.java']
 }
 
 repositories {
