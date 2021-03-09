@@ -25,3 +25,10 @@ test {
 	useJUnitPlatform()
 	finalizedBy jacocoTestReport
 }
+
+jacocoTestReport {
+	reports {
+		xml.enabled true
+		xml.destination file("${rootProject.projectDir}/build/reports/jacoco/report.xml")
+		}
+}
